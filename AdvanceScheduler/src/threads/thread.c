@@ -355,7 +355,7 @@ thread_set_priority (int new_priority)
 {
   if (thread_mlfqs)
     return;
-  thread_current ()->priority = new_priority;
+  //thread_current ()->priority = new_priority;
 }
 
 /* Returns the current thread's priority. */
@@ -609,8 +609,8 @@ blocked_thread_check (struct thread *t, void *aux UNUSED)
 {
   if (t->status == THREAD_BLOCKED && t->ticks_blocked > 0)
   {
-      t->ticks_blocked--;
-      if (t->ticks_blocked == 0)
+      t->ticks_blocked--;           
+      if (t->ticks_blocked == 0)    
       {
           thread_unblock(t);
       }
